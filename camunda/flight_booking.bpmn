@@ -17,7 +17,7 @@
       <bpmn:incoming>Flow_0m5jrdz</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0m5jrdz" sourceRef="Activity_1v9ue2f" targetRef="Event_0sr6drl" />
-    <bpmn:userTask id="Activity_1v9ue2f" name="werte anzeigen in form" camunda:formRef="flightBookingForm" camunda:formRefBinding="latest">
+    <bpmn:userTask id="Activity_1v9ue2f" name="werte anzeigen in form" camunda:formRef="flight_booking_form" camunda:formRefBinding="latest">
       <bpmn:incoming>Flow_0dphd5b</bpmn:incoming>
       <bpmn:outgoing>Flow_0m5jrdz</bpmn:outgoing>
     </bpmn:userTask>

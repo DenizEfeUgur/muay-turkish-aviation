@@ -79,7 +79,7 @@ function App() {
       },
     };
 
-    console.log(formData);
+    console.log("Form data:", formData);
 
     try {
       const response = await fetch(apiUrl, {
@@ -90,7 +90,11 @@ function App() {
         body: JSON.stringify(formData),
       });
 
+      console.log("Response status:", response.status);
+
       if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error data:", errorData);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
@@ -98,7 +102,7 @@ function App() {
       console.log("Booking successful:", data);
       // Handle success (e.g., display a success message or redirect)
     } catch (error) {
-      console.error("Booking failed:", error);
+      console.error("Booking failed:", error.message);
       // Handle error (e.g., display an error message)
     }
   };

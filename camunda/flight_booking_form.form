@@ -78,7 +78,7 @@
     }
   ],
   "type": "default",
-  "id": "flightBookingForm",
+  "id": "flight_booking_form",
   "exporter": {
     "name": "Camunda Modeler",
     "version": "5.23.0"
