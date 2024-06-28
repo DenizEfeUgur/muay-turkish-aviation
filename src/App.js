@@ -72,8 +72,8 @@ function App() {
       variables: {
         fldFrom: { value: countryFrom, type: "String" },
         fldTo: { value: countryTo, type: "String" },
-        fldDeparture: { value: departure, type: "Date" },
-        fldReturnFlight: { value: returnFlight, type: "Date" },
+        fldDeparture: { value: departure, type: "String" },
+        fldReturnFlight: { value: returnFlight, type: "String" },
         fldAdults: { value: adults, type: "Integer" },
         fldChildren: { value: children, type: "Integer" },
       },
