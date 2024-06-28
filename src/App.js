@@ -80,8 +80,20 @@ function App() {
     };
 
     try {
-      const response = await axios.post(apiUrl, formData);
-      console.log("Booking successful:", response.data);
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Booking successful:", data);
       // Handle success (e.g., display a success message or redirect)
     } catch (error) {
       console.error("Booking failed:", error);
