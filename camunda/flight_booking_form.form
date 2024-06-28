@@ -1,0 +1,89 @@
+{
+  "components": [
+    {
+      "values": [
+        {
+          "label": "Value",
+          "value": "value"
+        }
+      ],
+      "label": "From",
+      "type": "select",
+      "layout": {
+        "row": "Row_07mstr3",
+        "columns": null
+      },
+      "id": "Field_1nke0op",
+      "key": "fldFrom"
+    },
+    {
+      "values": [
+        {
+          "label": "Value",
+          "value": "value"
+        }
+      ],
+      "label": "To",
+      "type": "select",
+      "layout": {
+        "row": "Row_0mjs2ub",
+        "columns": null
+      },
+      "id": "Field_1t7usew",
+      "key": "fldTo"
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Departure",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_05rqpvc",
+        "columns": null
+      },
+      "id": "Field_0gkaunw",
+      "key": "fldDeparture"
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Return flight",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_148187v",
+        "columns": null
+      },
+      "id": "Field_18fs3y7",
+      "key": "fldReturnFlight"
+    },
+    {
+      "label": "Adults",
+      "type": "number",
+      "layout": {
+        "row": "Row_0j7bbkt",
+        "columns": null
+      },
+      "id": "Field_0g32g6p",
+      "key": "fldAdults"
+    },
+    {
+      "label": "Children",
+      "type": "number",
+      "layout": {
+        "row": "Row_0f0v2kw",
+        "columns": null
+      },
+      "id": "Field_0vmpgao",
+      "key": "fldChildren"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0qcidkh",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.23.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}
