@@ -55,7 +55,7 @@ const destinations = [
 ];
 
 const apiUrl =
-  "http://localhost:8080/engine-rest/process-definition/key/flightBookingId/start";
+  "http://localhost:8080/engine-rest/process-definition/key/flightBookingAviation/start";
   
 const BookingForm = () => {
   const [countryFrom, setCountryFrom] = useState("");
@@ -147,7 +147,6 @@ const BookingForm = () => {
       onChange={(e) => setAdults(parseInt(e.target.value))}
       type="number"
       name="adults"
-      min="1"
       defaultValue="0"
       required
     />
