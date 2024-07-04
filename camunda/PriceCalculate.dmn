@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="DRD_calculate_price" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.23.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
+  <decision id="CalculatePrice" name="Calculate Price" camunda:historyTimeToLive="180">
+    <informationRequirement id="InformationRequirement_0f3sbui">
+      <requiredInput href="#InputData_01zlquw" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_131ocnc">
+      <requiredInput href="#InputData_0awuu68" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1pz7yq9" hitPolicy="FIRST">
+      <input id="Input_1" label="adults" camunda:inputVariable="adults">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1mg4jjm" label="children" camunda:inputVariable="children">
+        <inputExpression id="LiteralExpression_177m7i3" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0rdme2i" label="price" name="price" typeRef="integer" />
+      <rule id="DecisionRule_1p0u6ng">
+        <inputEntry id="UnaryTests_157ymb7">
+          <text>&lt;=0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d0bhrh">
+          <text>&lt;=0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wx97w0">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1b46pmw">
+        <inputEntry id="UnaryTests_1bxocao">
+          <text>&gt;0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kq56xm">
+          <text>&gt;0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uj8qx2">
+          <text>floor((adults * 150) + (children * 120))</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10xx0ur">
+        <inputEntry id="UnaryTests_06b6djv">
+          <text>&gt;0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vdnw0g">
+          <text>&lt;=0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1maj99v">
+          <text>floor(adults * 150)</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0eckd3g">
+        <inputEntry id="UnaryTests_0rif8jb">
+          <text>&lt;=0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ym2pj4">
+          <text>&gt;0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bcus0h">
+          <text>floor(children * 120)</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0awuu68" name="adults" />
+  <inputData id="InputData_01zlquw" name="children" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="CalculatePrice">
+        <dc:Bounds height="80" width="180" x="270" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_01grytw" dmnElementRef="InputData_0awuu68">
+        <dc:Bounds height="45" width="125" x="187" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0s8j79z" dmnElementRef="InputData_01zlquw">
+        <dc:Bounds height="45" width="125" x="377" y="239" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0s0ugne" dmnElementRef="InformationRequirement_0f3sbui">
+        <di:waypoint x="440" y="239" />
+        <di:waypoint x="390" y="180" />
+        <di:waypoint x="390" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_09wj57c" dmnElementRef="InformationRequirement_131ocnc">
+        <di:waypoint x="250" y="238" />
+        <di:waypoint x="330" y="180" />
+        <di:waypoint x="330" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

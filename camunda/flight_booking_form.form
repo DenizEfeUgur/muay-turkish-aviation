@@ -1,59 +1,43 @@
 {
   "components": [
     {
-      "values": [
-        {
-          "label": "Value",
-          "value": "value"
-        }
-      ],
       "label": "From",
-      "type": "select",
-      "layout": {
-        "row": "Row_07mstr3",
-        "columns": null
-      },
-      "id": "Field_1nke0op",
-      "key": "fldFrom"
-    },
-    {
-      "values": [
-        {
-          "label": "Value",
-          "value": "value"
-        }
-      ],
-      "label": "To",
-      "type": "select",
+      "type": "textfield",
       "layout": {
         "row": "Row_0mjs2ub",
         "columns": null
       },
-      "id": "Field_1t7usew",
+      "id": "Field_0l8d3er",
+      "key": "fldFrom"
+    },
+    {
+      "label": "To",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0mjs2ub",
+        "columns": null
+      },
+      "id": "Field_14cddtg",
       "key": "fldTo"
     },
     {
-      "subtype": "date",
-      "dateLabel": "Departure",
-      "label": "Date time",
-      "type": "datetime",
+      "label": "Departure",
+      "type": "textfield",
       "layout": {
-        "row": "Row_05rqpvc",
+        "row": "Row_0mkm2f7",
         "columns": null
       },
-      "id": "Field_0gkaunw",
+      "id": "Field_0m0olyl",
       "key": "fldDeparture"
     },
     {
-      "subtype": "date",
-      "dateLabel": "Return flight",
-      "label": "Date time",
-      "type": "datetime",
+      "label": "Return flight",
+      "type": "textfield",
       "layout": {
-        "row": "Row_148187v",
+        "row": "Row_14me9lq",
         "columns": null
       },
-      "id": "Field_18fs3y7",
+      "id": "Field_1y5yl7n",
       "key": "fldReturnFlight"
     },
     {
@@ -75,6 +59,16 @@
       },
       "id": "Field_0vmpgao",
       "key": "fldChildren"
+    },
+    {
+      "label": "Price",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_06z6qd6",
+        "columns": null
+      },
+      "id": "Field_1iwl97c",
+      "key": "price"
     }
   ],
   "type": "default",
