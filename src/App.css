@@ -69,3 +69,7 @@ button {
 button:hover {
   background-color: #214f8e;
 }
+
+a {
+  text-decoration: none;
+}

@@ -24,10 +24,6 @@
       <bpmn:incoming>Flow_1kjzzgg</bpmn:incoming>
       <bpmn:outgoing>Flow_0gp56yk</bpmn:outgoing>
     </bpmn:manualTask>
-    <bpmn:task id="Activity_19n2ljk" name="Fliegen">
-      <bpmn:incoming>Flow_0aq76g4</bpmn:incoming>
-      <bpmn:outgoing>Flow_0kvna7a</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:endEvent id="Event_0r3nz3u" name="Erfolgreicher Flug">
       <bpmn:incoming>Flow_0kvna7a</bpmn:incoming>
     </bpmn:endEvent>
@@ -41,13 +37,17 @@
     <bpmn:sequenceFlow id="Flow_0aq76g4" sourceRef="Event_170orel" targetRef="Activity_19n2ljk" />
     <bpmn:sequenceFlow id="Flow_0gp56yk" sourceRef="Activity_0pzb6jg" targetRef="Activity_1e5xeto" />
     <bpmn:sequenceFlow id="Flow_0kvna7a" sourceRef="Activity_19n2ljk" targetRef="Event_0r3nz3u" />
+    <bpmn:manualTask id="Activity_19n2ljk" name="Fliegen">
+      <bpmn:incoming>Flow_0aq76g4</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kvna7a</bpmn:outgoing>
+    </bpmn:manualTask>
   </bpmn:process>
   <bpmn:process id="flightBookingAviation" isExecutable="true" camunda:historyTimeToLive="180">
     <bpmn:startEvent id="Event_1c5wk7q" name="Buchung eingegangen">
       <bpmn:outgoing>Flow_0310ckb</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_1ak3uvk" messageRef="Message_1vomsa8" />
     </bpmn:startEvent>
-    <bpmn:userTask id="Activity_1v9ue2f" name="werte in der form anzeigen" camunda:formRef="flight_booking_form" camunda:formRefBinding="latest">
+    <bpmn:userTask id="Activity_1v9ue2f" name="Buchungsdaten anzeigen" camunda:formRef="flight_booking_form" camunda:formRefBinding="latest">
       <bpmn:incoming>Flow_0py5uyc</bpmn:incoming>
       <bpmn:outgoing>Flow_0giwwqa</bpmn:outgoing>
     </bpmn:userTask>
@@ -81,16 +81,13 @@
         <bpmn:condition xsi:type="bpmn:tFormalExpression" />
       </bpmn:conditionalEventDefinition>
     </bpmn:intermediateCatchEvent>
-    <bpmn:intermediateCatchEvent id="Event_11tlkzw" name="Ausgewähltes Datum eingetroffen">
+    <bpmn:intermediateCatchEvent id="Event_11tlkzw" name="Flugdatum eingetroffen">
       <bpmn:incoming>Flow_0ltpfol</bpmn:incoming>
       <bpmn:outgoing>Flow_0i97rxv</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_1ryp83s">
         <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">10</bpmn:timeDuration>
       </bpmn:timerEventDefinition>
     </bpmn:intermediateCatchEvent>
-    <bpmn:task id="Activity_04j71f7" name="Flugzeug vorbereiten">
-      <bpmn:incoming>Flow_0i97rxv</bpmn:incoming>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0310ckb" sourceRef="Event_1c5wk7q" targetRef="taskPreisBerechnen" />
     <bpmn:sequenceFlow id="Flow_0py5uyc" sourceRef="taskPreisBerechnen" targetRef="Activity_1v9ue2f" />
     <bpmn:sequenceFlow id="Flow_0giwwqa" sourceRef="Activity_1v9ue2f" targetRef="Event_174kiq0" />
@@ -99,6 +96,9 @@
     <bpmn:sequenceFlow id="Flow_05rv2kz" sourceRef="Gateway_09w2eia" targetRef="Event_1w8fxky" />
     <bpmn:sequenceFlow id="Flow_18kiali" sourceRef="Event_1w8fxky" targetRef="Event_1brmlyb" />
     <bpmn:sequenceFlow id="Flow_0i97rxv" sourceRef="Event_11tlkzw" targetRef="Activity_04j71f7" />
+    <bpmn:manualTask id="Activity_04j71f7" name="Flugzeug vorbereiten">
+      <bpmn:incoming>Flow_0i97rxv</bpmn:incoming>
+    </bpmn:manualTask>
   </bpmn:process>
   <bpmn:signal id="Signal_14o6t3v" name="Signal_14o6t3v" />
   <bpmn:message id="Message_1vomsa8" name="Message_1vomsa8" />
@@ -129,10 +129,6 @@
       <bpmndi:BPMNShape id="Activity_084b5ii_di" bpmnElement="Activity_0pzb6jg">
         <dc:Bounds x="340" y="147" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_19n2ljk_di" bpmnElement="Activity_19n2ljk">
-        <dc:Bounds x="970" y="147" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0r3nz3u_di" bpmnElement="Event_0r3nz3u">
         <dc:Bounds x="1242" y="169" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -141,6 +137,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_10jmuca_di" bpmnElement="Activity_1e5xeto">
         <dc:Bounds x="490" y="147" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0n5xvt8_di" bpmnElement="Activity_19n2ljk">
+        <dc:Bounds x="970" y="147" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1kjzzgg_di" bpmnElement="Flow_1kjzzgg">
         <di:waypoint x="268" y="187" />
@@ -207,12 +206,11 @@
       <bpmndi:BPMNShape id="Event_11tlkzw_di" bpmnElement="Event_11tlkzw">
         <dc:Bounds x="872" y="522" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="856" y="565" width="69" height="40" />
+          <dc:Bounds x="862" y="565" width="58" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_04j71f7_di" bpmnElement="Activity_04j71f7">
+      <bpmndi:BPMNShape id="Activity_0ovlti4_di" bpmnElement="Activity_04j71f7">
         <dc:Bounds x="960" y="500" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0310ckb_di" bpmnElement="Flow_0310ckb">
         <di:waypoint x="288" y="610" />
